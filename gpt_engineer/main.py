@@ -1,6 +1,11 @@
 import logging
 import os
 
+if __name__ == "__main__":
+    import sys
+    # XXX for import gpt_engineer
+    sys.path.append('./')
+
 from pathlib import Path
 
 import openai

@@ -5,7 +5,7 @@ import subprocess
 from enum import Enum
 from typing import List, Union
 
-from langchain.schema import AIMessage, HumanMessage, SystemMessage
+from langchain import AIMessage, HumanMessage, SystemMessage
 from termcolor import colored
 
 from gpt_engineer.ai import AI

@@ -7,12 +7,12 @@ from dataclasses import dataclass
 from typing import List, Optional, Union
 
 import openai
-import tiktoken
+# import tiktoken
 
-from langchain.callbacks.streaming_stdout import StreamingStdOutCallbackHandler
-from langchain.chat_models import ChatOpenAI
-from langchain.chat_models.base import BaseChatModel
-from langchain.schema import (
+from langchain import StreamingStdOutCallbackHandler
+from langchain import ChatOpenAI
+from langchain import BaseChatModel
+from langchain import (
     AIMessage,
     HumanMessage,
     SystemMessage,
@@ -282,7 +282,9 @@ class AI:
         int
             The number of tokens in the text.
         """
-        return len(self.tokenizer.encode(txt))
+        return (len(txt) * 2) // 3
+
+        # return len(self.tokenizer.encode(txt))
 
     def num_tokens_from_messages(self, messages: List[Message]) -> int:
         """
@@ -383,6 +385,8 @@ def get_tokenizer(model: str):
     Tokenizer
         The tokenizer for the specified model.
     """
+    return None
+
     if "gpt-4" in model or "gpt-3.5" in model:
         return tiktoken.encoding_for_model(model)
 
