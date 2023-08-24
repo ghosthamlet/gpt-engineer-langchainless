@@ -325,6 +325,8 @@ def fallback_model(model: str) -> str:
     str
         The name of the retrieved model, or "gpt-3.5-turbo" if the specified model is not available.
     """
+    return model
+
     try:
         openai.Model.retrieve(model)
         return model
@@ -357,14 +359,14 @@ def create_chat_model(model: str, temperature) -> BaseChatModel:
         return ChatOpenAI(
             model="gpt-4",
             temperature=temperature,
-            streaming=True,
+            streaming=False,
             client=openai.ChatCompletion,
         )
     elif model == "gpt-3.5-turbo":
         return ChatOpenAI(
             model="gpt-3.5-turbo",
             temperature=temperature,
-            streaming=True,
+            streaming=False,
             client=openai.ChatCompletion,
         )
     else:

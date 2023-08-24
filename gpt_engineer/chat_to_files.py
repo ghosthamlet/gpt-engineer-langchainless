@@ -95,7 +95,7 @@ def overwrite_files(chat, dbs):
             dbs.workspace[full_path] = file_content
 
 
-def get_code_strings(input) -> dict[str, str]:
+def get_code_strings(input):
     """
     Read file_list.txt and return file names and their content.
 
